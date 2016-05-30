@@ -1,6 +1,6 @@
 ### Wunderground data
 
-setwd("C:\\Users\\Tim\\Dropbox\\Bootstrap Web Design\\Data Playground\\wunderground data\\")
+setwd("..\\wunderground data\\")
 library(ggplot2)
 library(grid)
 library(stringr)
@@ -42,7 +42,7 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
 }
 
 # Load Data and add column titles:
-slo_2014 <- read.csv('Tuscany_weather_2014.txt', sep=';',header=F, as.is=T, encoding="latin1")
+slo_2014 <- read.csv('SLO_weather_2014.txt', sep=';',header=F, as.is=T, encoding="latin1")
 
 colnames(slo_2014)<-c("Time_EST","Temp", "Windchill", "Dew_Point", 
                       "Humidity", "Pressure", "Visibility", "Wind_Dir",
@@ -240,14 +240,3 @@ dev.off()
 
 ggplot(slo_2014)+ geom_smooth(aes(x = Time, y = Dew_Point, se=T, alpha=0.3, size=1, color = Season, Group=Season)) +
   ggtitle('Dew Point') 
-
-
-
-#Goal: What is a typical 'SLO day'? Come up with a metric that allows you to take same weather data
-# from other cities and rank them by how many 'SLO days' they have per year
-# (SLO should have upwards of 90% SLO days per year...)
-
-# Some ideas:
-# Temperature, humidity, pressure range
-# 
-# 
